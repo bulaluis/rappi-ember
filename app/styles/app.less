@@ -1,0 +1,346 @@
+@import 'bootstrap';
+
+// Variables
+
+@body-bg:               #3a4d56;
+@border-radius-base:    20px;
+@navbar-height:         70px;
+@navbar-bg:             #ff6654;
+
+
+// Elements
+
+.news-container {
+  background: #cdcdcc;
+  margin-top: 20px;       // Important adjust on JS
+  border-radius: @border-radius-base;
+  position: relative;
+  overflow-x: visible;
+
+  & > .nav-bar {
+    min-height: @navbar-height;
+    max-height: @navbar-height;
+    background: @navbar-bg;
+    border-top-right-radius: @border-radius-base;
+    border-top-left-radius: @border-radius-base;
+    display: block;
+    position: relative;
+
+    & > a.brand {
+      z-index: 1000;
+      font-size: 26px;
+      color: #fff;
+      text-decoration: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      left: 20px;
+
+      & > i {
+        color: #fff;
+      }
+    }
+
+    & > .nav-bar-detail {
+      z-index: 900;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -5px;
+      text-align: center;
+
+      & > h4 {
+        margin: 0;
+        color: #fff;
+      }
+
+      &.did-insert {
+        animation-name: bounceInDown;
+        .animation-duration(.4s);
+        animation-fill-mode: both;
+      }
+
+      &.will-destroy {
+        animation-name: bounceOutUp;
+        .animation-duration(.4s);
+        animation-fill-mode: both;
+      }
+    }
+  }
+
+  & > .content {
+    @media (min-width: @screen-sm-min) {
+      margin-left: 60px;
+      margin-right: 60px;
+    }
+
+    padding-top: 20px;
+    padding-bottom: 1px;
+
+    & > .news-item {
+      .item {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+        min-height: 90px;
+        max-height: 90px;
+        background: #fff;
+
+        .box-shadow(0px -1px 29px -11px rgba(0,0,0,0.75));
+
+        & > a {
+          display: inline-block;
+          margin-right: 10px;
+
+          & > img {
+            max-width: 70px;
+            min-width: 70px;
+            max-height: 70px;
+            min-height: 70px;
+          }
+        }
+
+        & > h4 {
+          display: inline-block;
+        }
+      }
+
+      &.did-insert {
+        transform-origin: top left;
+        transform: scale(0, 0);
+        animation-name: bounceToRight;
+        .animation-duration(.3s);
+        animation-fill-mode: both;
+      }
+
+      & > .news-detail {
+
+        margin-top: -15px;
+        background: #fff;
+        margin-bottom: 20px;
+
+        &.did-insert {
+          animation-name: zoomToBottom;
+          .animation-duration(.2s);
+          animation-fill-mode: both;
+        }
+
+        &.will-destroy {
+          animation-name: zoomToUp;
+          .animation-duration(.2s);
+          animation-fill-mode: both;
+        }
+
+        & > .image {
+          & > img {
+            max-width: 50%;
+          }
+          display: inline-block;
+        }
+      }
+    }
+
+  }
+
+  &.did-insert {
+    animation-name: bounceInUp;
+    .animation-duration(.7s);
+    animation-fill-mode: both;
+  }
+}
+
+// Animations
+
+@keyframes bounceOutUp {
+  20%, 40%, 45%, to {
+    animation-timing-function: cubic-bezier(.91,.8,.64,1.22);
+  }
+
+  20% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@keyframes zoomToUp {
+  from, 50%, 70%, to {
+    animation-timing-function: cubic-bezier(.91,.8,.64,1.22);
+    transform-origin: top left;
+  }
+
+  from {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1, 0.4546);
+  }
+
+  to {
+    transform: scale(1, 0);
+  }
+}
+
+@keyframes zoomToBottom {
+  from, 50%, 70%, to {
+    animation-timing-function: cubic-bezier(.91,.8,.64,1.22);
+    transform-origin: top left;
+  }
+
+  from {
+    transform: scale(1, 0);
+  }
+
+  50% {
+    transform: scale(1, 0.4546);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bounceInUp {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  from {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounceToRight {
+  from, 80%, 90%, 95%, to {
+    animation-timing-function: cubic-bezier(1,.63,.42,1.26);
+    transform-origin: top left;
+  }
+
+  from {
+    transform: scale(.300, 1);
+  }
+
+  80% {
+    transform: scale(1.1, 1);
+    transform-origin: top left;
+  }
+
+  90% {
+    transform: scale(.9782728, 1);
+    transform-origin: top left;
+    animation-delay: 1s;
+  }
+
+  95% {
+    transform: scale(1.00332, 1);
+    transform-origin: top left;
+    animation-delay: 1s;
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+// Spinner
+// http://tobiasahlin.com/spinkit/
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: @navbar-bg;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}

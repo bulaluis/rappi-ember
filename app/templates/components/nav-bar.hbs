@@ -1,0 +1,9 @@
+<a href="" class="brand" {{action this.attrs.onClick on="click"}}>
+  <span class="glyphicon glyphicon-menu-hamburger"></span>
+</a>
+
+{{#if activeItem.isExpanded}}
+  {{nav-bar-detail item=activeItem}}
+{{/if}}
+
+

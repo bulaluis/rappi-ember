@@ -1,11 +1,14 @@
 # Rappi-ember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Etapa 1 del proceso de selección [rappi](http://www.rappi.com/).
 
-## Prerequisites
+## Autor
 
-You will need the following things properly installed on your computer.
+* Luis Miguel Bula Mora <bulaluis@gmail.com>
+
+## Prerequisitos
+
+Se debe tener instalado lo siguiente en el computador
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
@@ -13,41 +16,28 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](http://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 
-## Installation
+## Instalación
 
 * `git clone <repository-url>` this repository
-* change into the new directory
+* ubicarse dentro del nuevo directorio
 * `npm install`
 * `bower install`
 
-## Running / Development
+## Ejecutar entorno de desarrollo
 
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* Visitar la applicación en [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
+## Especificar una url de servidor externo
+* Agregar la url en el archivo environment.js dentro de la carpeta config
 
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
+### Compilar versión para producción
 
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
+## Enlaces
 
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 

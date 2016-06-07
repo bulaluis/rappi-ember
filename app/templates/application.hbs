@@ -1,13 +1,20 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class="container">
+  {{#news-container}}
+    {{nav-bar onClick=(action "loadNews") activeItem=activeItem}}
 
-<button {{action "load"}}>Load</button>
+    <div class="content">
+      {{#if isLoading}}
+          <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+          </div>
+      {{else}}
+        {{#each news as |item|}}
+          {{news-item item=item active=(action "setActive" item)}}
+        {{/each}}
+      {{/if}}
+    </div>
+  {{/news-container}}
+</div>
 
-{{#if isLoading}}
-	<p>Loading....</p>
-{{else}}
-	{{#each news as |item|}}
-		{{news-item item=item}}
-	{{/each}}
-{{/if}}
 
-{{outlet}}

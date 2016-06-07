@@ -1,1 +1,13 @@
-{{item.login}}
+
+<div class="item">
+  <a href="#" {{action this.attrs.active}}>
+    <img src="{{item.image}}" class="img-circle">
+  </a>
+  <h4>{{item.title}}</h4>
+</div>
+
+{{#if item.isExpanded}}
+  {{news-detail item=item}}
+{{/if}}
+
+
