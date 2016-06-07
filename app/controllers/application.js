@@ -28,6 +28,10 @@ export default Ember.Controller.extend({
 
 				Ember.run.next(this, this.insertItem, 0, data.get('length'));
 			})
+      .fail((err) => {
+
+        alert(`Se presentó un error al obtener los datos\nstatus: ${err && err.status}\nmessage: ${err && (err.message || err.statusText)}`);
+      })
 			.always(() => this.set('isLoading', false));
 		},
     setActive(item) {
